@@ -50,7 +50,7 @@ jobs:
         with:
           host: ec2-54-169-8-99.ap-southeast-1.compute.amazonaws.com
           username: ubuntu
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.KEY_AWS }}
           port: 22
           script: |
 #            1. ngeremove image latest

@@ -33,5 +33,9 @@ func New(db *gorm.DB) *echo.Echo {
 	app.GET("/users", userController.GetAllUsers, middleware.JWT([]byte(constants.SECRET_JWT)))
 	app.POST("/users", userController.CreateUser)
 
+	app.GET("/hallo", func(c echo.Context) error {
+		return c.String(200, "Hallo")
+	})
+
 	return app
 }

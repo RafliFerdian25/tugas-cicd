@@ -53,10 +53,7 @@ jobs:
           key: ${{ secrets.KEY_AWS }}
           port: 22
           script: |
-#            1. ngeremove image latest
             sudo docker stop app
             sudo docker container rm app
-#            2. nge pull image latest
             sudo docker pull rafliferdian/praktikum-cicd:latest
-#            3. rerun
             sudo docker run -d -v $PWD/.env:/.env -p 80:6969 --name app rafliferdian/praktikum-cicd:latest

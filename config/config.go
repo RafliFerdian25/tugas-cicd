@@ -30,7 +30,9 @@ func InitConfig() {
 		fmt.Println(err)
 	}
 
-	viper.Unmarshal(cfg)
-
+	err := viper.Unmarshal(cfg)
+	if err != nil {
+		fmt.Println(err)
+	}
 	Cfg = cfg
 }

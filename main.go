@@ -21,5 +21,6 @@ func main() {
 
 	apiPort := config.Cfg.APIPort
 	// apiPort := os.Getenv("APIPort")
-	app.Start(apiPort)
+	app.Logger.Fatal(app.Start(apiPort))
+	// app.Start(apiPort)
 }

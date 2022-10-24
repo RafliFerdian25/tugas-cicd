@@ -17,7 +17,13 @@ type AuthController struct {
 // Login new user
 func (a *AuthController) LoginUserController(c echo.Context) error {
 	user := model.User{}
-	c.Bind(&user)
+	errBind := c.Bind(&user)
+	if errBind != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": "fail bind data",
+			"error": errBind,
+		})
+	}
 	
 	userLogin, err := a.AuthService.LoginUser(user)
 	if err != nil {

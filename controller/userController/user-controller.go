@@ -19,6 +19,7 @@ func (us *UserController) GetAllUsers(c echo.Context) error {
 		})
 	}
 	return c.JSON(200, echo.Map{
+		"message": "success",
 		"data": users,
 	})
 }
